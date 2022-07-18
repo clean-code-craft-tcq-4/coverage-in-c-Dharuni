@@ -42,3 +42,4 @@ void checkAndAlert(
 
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
+TemperatureLimit checkTempLimits(CoolingType coolingType)
