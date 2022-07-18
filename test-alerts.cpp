@@ -8,3 +8,22 @@ TEST_CASE("infers the breach according to limits") {
   REQUIRE(inferBreach(40, 20, 30) == TOO_HIGH);
   REQUIRE(inferBreach(22, 20, 30) == NORMAL);
 }
+
+TEST_CASE("Check the temperature limits based on the coolingType") {
+  TemperatureLimit tempLimit;
+  
+  //Test Lower & Upper Limits of PASSIVE_COOLING
+  tempLimit = determineTempLimits(PASSIVE_COOLING);
+  REQUIRE(tempLimit.lowerLimit == PASSIVE_COOLING_LOW_LIMIT);
+  REQUIRE(tempLimit.upperLimit == PASSIVE_COOLING_HIGH_LIMIT);
+  
+  //Test Lower & Upper Limits of HI_ACTIVE_COOLING
+  tempLimit = determineTempLimits(HI_ACTIVE_COOLING);
+  REQUIRE(tempLimit.lowerLimit == HI_ACTIVE_COOLING_LOW_LIMIT);
+  REQUIRE(tempLimit.upperLimit == HI_ACTIVE_COOLING_HIGH_LIMIT);
+  
+  //Test Lower & Upper Limits of MED_ACTIVE_COOLING
+  tempLimit = determineTempLimits(MED_ACTIVE_COOLING);
+  REQUIRE(tempLimit.lowerLimit == MED_ACTIVE_COOLING_LOW_LIMIT);
+  REQUIRE(tempLimit.upperLimit == MED_ACTIVE_COOLING_HIGH_LIMIT);
+}
