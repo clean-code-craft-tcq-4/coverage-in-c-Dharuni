@@ -13,17 +13,17 @@ TEST_CASE("Check the temperature limits based on the coolingType") {
   TemperatureLimit tempLimit;
   
   //Test Lower & Upper Limits of PASSIVE_COOLING
-  tempLimit = determineTempLimits(PASSIVE_COOLING);
+  tempLimit = checkTempLimits(PASSIVE_COOLING);
   REQUIRE(tempLimit.lowerLimit == PASSIVE_COOLING_LOWER_LIMIT);
   REQUIRE(tempLimit.upperLimit == PASSIVE_COOLING_UPPER_LIMIT);
   
   //Test Lower & Upper Limits of HI_ACTIVE_COOLING
-  tempLimit = determineTempLimits(HI_ACTIVE_COOLING);
+  tempLimit = checkTempLimits(HI_ACTIVE_COOLING);
   REQUIRE(tempLimit.lowerLimit == HI_ACTIVE_COOLING_LOWER_LIMIT);
   REQUIRE(tempLimit.upperLimit == HI_ACTIVE_COOLING_UPPER_LIMIT);
   
   //Test Lower & Upper Limits of MED_ACTIVE_COOLING
-  tempLimit = determineTempLimits(MED_ACTIVE_COOLING);
+  tempLimit = checkTempLimits(MED_ACTIVE_COOLING);
   REQUIRE(tempLimit.lowerLimit == MED_ACTIVE_COOLING_LOWER_LIMIT);
   REQUIRE(tempLimit.upperLimit == MED_ACTIVE_COOLING_UPPER_LIMIT);
 }
