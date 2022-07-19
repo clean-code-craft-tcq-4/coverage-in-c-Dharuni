@@ -28,6 +28,14 @@ TEST_CASE("Check the temperature limits based on the coolingType") {
   REQUIRE(tempLimit.upperLimit == MED_ACTIVE_COOLING_UPPER_LIMIT);
 }
 
+TEST_CASE("Check and Alert the Temperature Breach based on coolingType ") {
+  BatteryCharacter batteryChar;
+  
+  batteryChar.coolingType = PASSIVE_COOLING;
+  assert(checkAndAlert(TO_CONTROLLER,batteryChar,0)==SUCCESS);	// Controller alert for temp in range
+  assert(checkAndAlert(TO_EMAIL,batteryChar,35)==SUCCESS);		//Email alert for temp in range
+}
+
 TEST_CASE("Alert via Email") {
   REQUIRE(sendToEmail(TOO_LOW)== SUCCESS);	//Alert for Too-Low Temperature
   REQUIRE(sendToEmail(TOO_HIGH)== SUCCESS); //Alert for Too-High Temperature
