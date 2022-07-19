@@ -8,7 +8,7 @@
 #define MED_ACTIVE_COOLING_UPPER_LIMIT	40
 
 #define SUCCESS 1
-#degine FAILURE 0
+#define FAILURE 0
 
 typedef enum {
   PASSIVE_COOLING,
