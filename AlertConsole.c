@@ -1,6 +1,5 @@
 #include "typewise-alert.h"
 #include <stdio.h>
-#include <cstdio.h>
 
 int sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
