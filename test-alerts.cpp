@@ -27,3 +27,8 @@ TEST_CASE("Check the temperature limits based on the coolingType") {
   REQUIRE(tempLimit.lowerLimit == MED_ACTIVE_COOLING_LOWER_LIMIT);
   REQUIRE(tempLimit.upperLimit == MED_ACTIVE_COOLING_UPPER_LIMIT);
 }
+
+TEST_CASE("Alert via Email") {
+  REQUIRE(sendToEmail(TOO_LOW)== SUCCESS);	//Alert for Too-Low Temperature
+  REQUIRE(sendToEmail(TOO_HIGH)== SUCCESS); //Alert for Too-High Temperature
+}
